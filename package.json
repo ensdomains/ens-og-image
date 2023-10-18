@@ -1,0 +1,26 @@
+{
+  "name": "ens-og-image",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "publish": "wrangler publish",
+    "postinstall": "bunx patch-package"
+  },
+  "devDependencies": {
+    "@cloudflare/kv-asset-handler": "^0.3.0",
+    "@types/react": "^18.2.28",
+    "bun-types": "latest",
+    "patch-package": "^8.0.0",
+    "wrangler": "^3.13.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20231016.0",
+    "@vercel/og": "^0.5.19",
+    "react": "^18.2.0",
+    "viem": "^1.16.6"
+  }
+}
