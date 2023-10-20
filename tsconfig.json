@@ -18,7 +18,8 @@
     "allowJs": true,
     "types": ["@cloudflare/workers-types"],
     "paths": {
-      "viem/*": ["./node_modules/viem/*"]
+      "viem/*": ["./node_modules/viem/*"],
+      "@ensdomains/ensjs/*": ["./node_modules/@ensdomains/ensjs/src/*"]
     }
   }
 }

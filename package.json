@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20231016.0",
+    "@ensdomains/ensjs": "next",
     "@vercel/og": "^0.5.19",
+    "itty-router": "^4.0.23",
     "react": "^18.2.0",
     "viem": "^1.16.6"
   }

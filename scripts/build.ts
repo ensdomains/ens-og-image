@@ -19,6 +19,7 @@ const built = await esbuild.build({
   plugins: [wasmPlugin],
   alias: {
     "viem/*": "./node_modules/viem/_esm/*",
+    "@ensdomains/ensjs/*": "./node_modules/@ensdomains/ensjs/dist/esm/*",
   },
   metafile: true,
 });
