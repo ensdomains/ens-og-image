@@ -20,7 +20,7 @@ const main = async (request: Request, ctx: ExecutionContext) => {
   const start = performance.now();
 
   const cache = caches.default;
-  const cacheKey = request.url + Date.now();
+  const cacheKey = request.url;
 
   let response = await cache.match(cacheKey);
 
