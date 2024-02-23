@@ -61,7 +61,7 @@ export const nameHandler = async ({ params }: IRequest) => {
       />
     ) : (
       <Layout
-        imageElement={<AvatarWithEnsIcon src={avatarSrc} />}
+        imageElement={<AvatarWithEnsIcon avatarSrc={avatarSrc} />}
         title={name}
         subtitle={ethAddress ? shortenAddress(ethAddress) : undefined}
         type="name"

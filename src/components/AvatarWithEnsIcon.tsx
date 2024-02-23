@@ -1,8 +1,8 @@
 type Props = {
-  src: string;
+  avatarSrc: { avatar: string } | { avatar: string; fallback: string };
 };
 
-export const AvatarWithEnsIcon = ({ src }: Props) => {
+export const AvatarWithEnsIcon = ({ avatarSrc }: Props) => {
   return (
     <div style={{ display: "flex", position: "relative" }}>
       <img
@@ -13,10 +13,14 @@ export const AvatarWithEnsIcon = ({ src }: Props) => {
           padding: "-1px",
           marginLeft: "-16px",
           marginRight: "-16px",
+          ...("fallback" in avatarSrc && {
+            backgroundSize: "332px 332px",
+            backgroundImage: `url(${avatarSrc.fallback})`,
+          }),
         }}
         width="332"
         height="332"
-        src={src}
+        src={avatarSrc.avatar}
       />
       <svg
         style={{ left: "-37px", top: "-21px", position: "absolute" }}

@@ -27,13 +27,15 @@ export const normaliseAvatar = async ({
   address,
   name,
 }: Params) => {
-  let src = avatar;
+  const { zorbImageDataURI } = await import("./gradient");
+  const input = type === "address" ? address : name;
 
-  if (!src) {
-    const input = type === "address" ? address : name;
-    const { zorbImageDataURI } = await import("./gradient");
-    src = zorbImageDataURI(input, type, {} as any);
+  if (!avatar) {
+    return { avatar: zorbImageDataURI(input, type, {} as any) };
   }
 
-  return src;
+  return {
+    avatar,
+    fallback: zorbImageDataURI(input, type, {} as any),
+  };
 };

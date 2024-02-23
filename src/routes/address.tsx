@@ -50,7 +50,7 @@ export const addressHandler = async ({ params }: IRequest) => {
 
   const element = (
     <Layout
-      imageElement={<AvatarWithEnsIcon src={avatarSrc} />}
+      imageElement={<AvatarWithEnsIcon avatarSrc={avatarSrc} />}
       title={shortenAddress(normalisedAddress)}
       subtitle={primaryName}
       type="address"

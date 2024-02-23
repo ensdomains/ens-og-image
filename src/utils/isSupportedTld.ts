@@ -41,6 +41,7 @@ export const isSupportedTld = async (name: string) => {
     }
   );
   const result = (await response.json()) as DohResponse;
-  console.log(tld, result);
+  // NXDOMAIN
+  if (result?.Status === 3) return false;
   return result?.AD;
 };
