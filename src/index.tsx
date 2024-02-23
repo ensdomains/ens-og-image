@@ -43,5 +43,10 @@ const main = async (request: Request, ctx: ExecutionContext) => {
 
 export default {
   fetch: async (request: Request, _: unknown, ctx: ExecutionContext) =>
-    main(request, ctx).catch(error).then(corsify),
+    main(request, ctx)
+      .catch((err) => {
+        console.error(err);
+        return error(500, "Internal Server Error");
+      })
+      .then(corsify),
 };
