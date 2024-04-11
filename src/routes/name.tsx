@@ -1,12 +1,11 @@
-import type { ClientWithEns } from "@ensdomains/ensjs/contracts";
+import { getExpiry } from "@ensdomains/ensjs/public";
 import type { IRequest } from "itty-router";
-import { getEnsAddress } from "viem/actions/ens/getEnsAddress";
-import { getEnsAvatar } from "viem/actions/ens/getEnsAvatar";
+import { getEnsAddress } from "viem/ens";
 import { AvatarWithEnsIcon } from "../components/AvatarWithEnsIcon";
 import { LargeEnsIcon } from "../components/LargeEnsIcon";
 import { Layout } from "../components/Layout";
+import { getEnsAvatar } from "../utils/avatar/getEnsAvatar";
 import { client } from "../utils/consts";
-import { getExpiry } from "../utils/dynamic";
 import { generateImage } from "../utils/generateImage";
 import { isSupportedTld } from "../utils/isSupportedTld";
 import { normaliseAvatar } from "../utils/normaliseAvatar";
@@ -30,7 +29,7 @@ export const nameHandler = async ({ params }: IRequest) => {
     getEnsAddress(client, {
       name: normalisedName,
     }),
-    getExpiry(client as ClientWithEns, {
+    getExpiry(client, {
       name: normalisedName,
     }),
     isSupportedTld(normalisedName),

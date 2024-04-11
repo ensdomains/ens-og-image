@@ -1,10 +1,4 @@
-import type { Hex, hexToBytes as hexToBytesT } from "viem";
-import type { namehash as namehashT } from "viem/ens";
-
-const { hexToBytes } = require("viem/_esm/utils/encoding/toBytes") as {
-  hexToBytes: typeof hexToBytesT;
-};
-const { namehash } = require("viem/_esm/ens") as { namehash: typeof namehashT };
+import { Hex, hexToBytes, namehash } from "viem";
 
 const emptyAddress = "0x0000000000000000000000000000000000000000";
 

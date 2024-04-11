@@ -1,12 +1,11 @@
-import type { ClientWithEns } from "@ensdomains/ensjs/contracts";
+import { getName } from "@ensdomains/ensjs/public";
 import type { IRequest } from "itty-router";
 import type { Address } from "viem";
-import { getEnsAvatar } from "viem/actions/ens/getEnsAvatar";
 import { getAddress } from "viem/utils/address/getAddress";
 import { AvatarWithEnsIcon } from "../components/AvatarWithEnsIcon";
 import { Layout } from "../components/Layout";
+import { getEnsAvatar } from "../utils/avatar/getEnsAvatar";
 import { client } from "../utils/consts";
-import { getName } from "../utils/dynamic";
 import { generateImage } from "../utils/generateImage";
 import { normaliseAvatar } from "../utils/normaliseAvatar";
 import { shortenAddress } from "../utils/shortenAddress";
@@ -25,7 +24,7 @@ export const addressHandler = async ({ params }: IRequest) => {
     return new Response("Invalid address", { status: 400 });
   }
 
-  const nameData = await getName(client as ClientWithEns, {
+  const nameData = await getName(client, {
     address: normalisedAddress,
   });
 
