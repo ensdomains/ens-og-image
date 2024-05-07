@@ -1,9 +1,23 @@
 diff --git a/node_modules/@vercel/og/dist/index.edge.js b/node_modules/@vercel/og/dist/index.edge.js
-index 65621c5..06f3016 100644
+index 089354c..ed90b84 100644
 --- a/node_modules/@vercel/og/dist/index.edge.js
 +++ b/node_modules/@vercel/og/dist/index.edge.js
-@@ -18621,8 +18621,8 @@ function isCustomFontsOptions(value) {
- }
+@@ -14971,7 +14971,12 @@ async function yt(e) {
+   let t = Re.get(e);
+   if (t)
+     return t;
+-  let n = e, r = fetch(n).then((i) => {
++  let n = e, r = fetch(n, {
++    cf: {
++      cacheTtl: 3_600,
++      cacheEverything: true,
++    },
++  }).then((i) => {
+     let o = i.headers.get("content-type");
+     return o === "image/svg+xml" || o === "application/svg+xml" ? i.text() : i.arrayBuffer();
+   }).then((i) => {
+@@ -18565,8 +18570,8 @@ var Resvg2 = class extends Resvg {
+ };
  
  // src/index.edge.ts
 -import resvg_wasm from "./resvg.wasm?module";
@@ -13,7 +27,7 @@ index 65621c5..06f3016 100644
  
  // src/emoji/index.ts
  var U200D = String.fromCharCode(8205);
-@@ -18846,22 +18846,13 @@ async function render(satori, resvg, opts, defaultFonts, element) {
+@@ -18980,22 +18985,13 @@ function assertValue(v, errorMessage) {
  // src/index.edge.ts
  var initializedResvg = initWasm(resvg_wasm);
  var initializedYoga = initYoga(yoga_wasm).then((yoga2) => Rl(yoga2));

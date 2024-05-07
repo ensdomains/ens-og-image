@@ -1,4 +1,5 @@
 import type { Address } from "viem";
+import { zorbImageDataURI } from "./gradient";
 
 type BaseParams = {
   type: string;
@@ -27,7 +28,6 @@ export const normaliseAvatar = async ({
   address,
   name,
 }: Params) => {
-  const { zorbImageDataURI } = await import("./gradient");
   const input = type === "address" ? address : name;
 
   if (!avatar) {
