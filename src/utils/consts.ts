@@ -9,7 +9,7 @@ import { http } from "viem/clients/transports/http";
 
 export const client = createClient({
   chain: addEnsContracts(mainnet as typeof mainnetT) as Chain,
-  transport: http("https://web3.ens.domains/v1/mainnet"),
+  transport: http("https://web3.euc.li/v1/mainnet"),
 }) as Client<HttpTransport, any>;
 
 export const emptyAddress = "0x0000000000000000000000000000000000000000";
